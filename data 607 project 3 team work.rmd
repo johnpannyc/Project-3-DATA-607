@@ -1,0 +1,82 @@
+---
+title: "DATA 607 Project 3"
+author: "Jun Pan"
+date: "October 18, 2018"
+output: html_document
+---
+
+Project – Data Science Skills 
+This is a project for your entire class section to work on together, since being able to work effectively on a virtual team is a key “soft skill” for data scientists.  Please note especially the requirement about making a presentation during our first meetup after the project is due. 
+ 
+‘nycﬂights13’ DATABASE
+
+Title Flights that Departed NYC in 2013 
+
+Description Airline on-time data for all ﬂights departing NYC in 2013. Also includes useful 'metadata' on airlines, airports, weather, and planes. 
+
+the database is availabe as a r package. 
+
+the other source for this database includes:
+URL http://github.com/hadley/nycflights13 
+
+Source https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236
+
+Format Data frame with columns 
+
+year,month,day: Date of departure 
+
+dep_time,arr_time: Actual departure and arrival times (format HHMM or HMM), local tz.
+
+sched_dep_time,sched_arr_time: Scheduleddepartureandarrivaltimes(formatHHMMorHMM), local tz.
+
+dep_delay,arr_delay: Departure and arrival delays, in minutes. Negative times represent early departures/arrivals.
+
+hour,minute: Time of scheduled departure broken into hour and minutes.
+
+carrier: Two letter carrier abbreviation. See airlines() to get name 
+
+tailnum: Plane tail number 
+
+ﬂight: Flight number 
+
+origin,dest: Origin and destination, See airports() for additional metadata.
+
+air_time: Amount of time spent in the air, in minutes 
+
+distance: Distance between airports, in miles 
+
+time_hour: Scheduled date and hour of the ﬂight as a POSIXct date. Along with origin, can be used to join ﬂights data to weather data.
+
+```{r}
+install.packages("nycﬂights13")
+```
+```{r}
+library(nycflights13)
+```
+
+
+set working enviornment
+```{r}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+```
+
+
+#Overview of database
+
+```{r}
+head(flights)
+```
+```{r}
+tail(flights)
+```
+
+```{r}
+dim(flights)
+```
+the dataframe has 336776 rows and 19 columns.
+```{r}
+summary(flights)
+```
+
